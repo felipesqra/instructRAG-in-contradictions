@@ -40,6 +40,14 @@ In Phase 2, the comparison is repeated under three document-selection conditions
 
 Each module has its own README with detailed information about its configuration, inputs, outputs, and implementation decisions.
 
+## Upstream Repository and Credits
+
+The complete `MedicalContradictionDetection-RAG` directory comes from the upstream [pub2026/MedicalContradictionDetection-RAG](https://github.com/pub2026/MedicalContradictionDetection-RAG) repository and is included here at commit [`c4bba5a`](https://github.com/pub2026/MedicalContradictionDetection-RAG/commit/c4bba5a7027f08a638f595b623f89fcd3b037c43) for experimental reproducibility.
+
+The biomedical datasets, original RAG pipeline, contradiction-detection implementation, metric methodology, and original result files contained in that directory are the work of the upstream project and its contributors. They are reused as the data and methodological foundation of this experiment; they were not created by this project.
+
+No license file was found in the included upstream revision. Its inclusion here does not relicense the upstream work. Consult the upstream repository and its authors for the applicable usage and redistribution terms.
+
 ## Quick Start
 
 The project requires Python 3.10 or later. Because each stage has its own dependencies, using a separate virtual environment for each module is recommended.
