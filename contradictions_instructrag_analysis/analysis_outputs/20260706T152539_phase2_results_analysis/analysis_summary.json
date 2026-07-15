@@ -1,0 +1,78 @@
+{
+  "analysis_created_at": "2026-07-06T15:25:50",
+  "alpha": 0.05,
+  "analysis_scope": "all_rows",
+  "run_dir": "/home/felipe/Master/Reprodutibility/experimento_v2/contradictions_instructrag_evaluation/outputs/20260706T081559Z_phase2_rag_comparison",
+  "analysis_output_dir": "/home/felipe/Master/Reprodutibility/experimento_v2/contradictions_instructrag_analysis/analysis_outputs/20260706T152539_phase2_results_analysis",
+  "loaded_rows": {
+    "aggregate_metrics": 6,
+    "per_example_metrics": 8376,
+    "paired_comparison": 3,
+    "raw_generations": 4188
+  },
+  "metrics_analyzed": [
+    "rouge1",
+    "rouge2",
+    "rougeL",
+    "semantic_cosine",
+    "semantic_dot",
+    "vsim",
+    "jsd",
+    "kld"
+  ],
+  "conditions_found": [
+    "most_similar",
+    "most_contradictory",
+    "least_contradictory"
+  ],
+  "model_arms_found": [
+    "baseline_rag",
+    "instructrag_icl_rag"
+  ],
+  "sample_summary": {
+    "planned_question_remedy_pairs": 1400,
+    "effective_question_remedy_pairs": 1396,
+    "retrieval_conditions": 3,
+    "model_arms": 2,
+    "total_generation_rows": 4188,
+    "total_response_rows": 8376
+  },
+  "main_results_rq1": {
+    "all_rows": {
+      "analysis_subset": "all_rows",
+      "num_comparisons": 24,
+      "instructrag_better": 24,
+      "baseline_better": 0,
+      "ties": 0,
+      "percent_favoring_instructrag": 100.0
+    }
+  },
+  "main_results_rq2": {
+    "all_rows": {
+      "metrics_instructrag_degraded_less": 8,
+      "metrics_baseline_degraded_less": 0,
+      "metrics_no_degradation_both": 7
+    }
+  },
+  "statistical_tests_available": {
+    "rq1": true,
+    "rq2": true
+  },
+  "statistical_tests_significant_counts": {
+    "rq1": 7,
+    "rq2": 0
+  },
+  "figures_created": [
+    "/home/felipe/Master/Reprodutibility/experimento_v2/contradictions_instructrag_analysis/analysis_outputs/20260706T152539_phase2_results_analysis/figures/bar_semantic_cosine_by_condition.png",
+    "/home/felipe/Master/Reprodutibility/experimento_v2/contradictions_instructrag_analysis/analysis_outputs/20260706T152539_phase2_results_analysis/figures/bar_rougeL_by_condition.png",
+    "/home/felipe/Master/Reprodutibility/experimento_v2/contradictions_instructrag_analysis/analysis_outputs/20260706T152539_phase2_results_analysis/figures/bar_vsim_by_condition.png",
+    "/home/felipe/Master/Reprodutibility/experimento_v2/contradictions_instructrag_analysis/analysis_outputs/20260706T152539_phase2_results_analysis/figures/bar_jsd_by_condition.png",
+    "/home/felipe/Master/Reprodutibility/experimento_v2/contradictions_instructrag_analysis/analysis_outputs/20260706T152539_phase2_results_analysis/figures/rq1_delta_heatmap.png",
+    "/home/felipe/Master/Reprodutibility/experimento_v2/contradictions_instructrag_analysis/analysis_outputs/20260706T152539_phase2_results_analysis/figures/rq2_degradation_comparison.png"
+  ],
+  "missing_files": [],
+  "warnings": [
+    "Statistical tests use only paired rows with numeric metric values for the tested metric.",
+    "Aggregate n_examples columns may include rows where individual metric values were unavailable, following the experiment output files."
+  ]
+}

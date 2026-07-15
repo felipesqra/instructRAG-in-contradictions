@@ -1,0 +1,10 @@
+{
+  "all_rows": {
+    "analysis_subset": "all_rows",
+    "num_comparisons": 24,
+    "instructrag_better": 24,
+    "baseline_better": 0,
+    "ties": 0,
+    "percent_favoring_instructrag": 100.0
+  }
+}

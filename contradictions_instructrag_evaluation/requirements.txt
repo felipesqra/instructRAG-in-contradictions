@@ -1,0 +1,13 @@
+pyyaml
+pandas
+numpy
+tqdm
+openai
+transformers
+torch
+accelerate
+sentence-transformers
+rouge-score
+scipy
+gensim
+scikit-learn

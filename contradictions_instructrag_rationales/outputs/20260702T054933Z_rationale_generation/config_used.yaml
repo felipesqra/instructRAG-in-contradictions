@@ -1,0 +1,57 @@
+project:
+  contradictions_repo_path: "../MedicalContradictionDetection-RAG"
+  instructrag_repo_path: "../InstructRAG"
+  output_dir: "outputs"
+  run_name: "rationale_generation"
+
+selection:
+  question_start_index: 0
+  num_questions: 2
+  num_remedies: 50
+  remedy_selection_strategy: "random"  # options: sequential, random
+  random_seed: 72
+
+documents:
+  max_documents_per_rationale: 20
+  document_selection_strategy: "as_available"
+  include_document_ids: true
+  include_document_scores_if_available: true
+
+model:
+  provider: "deepseek"  # options: deepseek, huggingface, huggingface_local
+  model_name: "deepseek-chat"
+  temperature: 0.0
+  max_new_tokens: 10000
+
+deepseek:
+  api_key_env: "DEEPSEEK_API_KEY"
+  base_url: "https://api.deepseek.com"
+  timeout_seconds: 120
+
+huggingface:
+  api_key_env: "HF_TOKEN"
+  base_url: "https://router.huggingface.co/v1"
+  timeout_seconds: 120
+  # model_name and local runtime fields are used only with provider: "huggingface_local".
+  model_name: "mistralai/Mistral-7B-Instruct-v0.3"
+  device: "auto"
+  torch_dtype: "auto"
+  trust_remote_code: false
+  use_auth_token_env: "HF_TOKEN"
+
+prompt:
+  system_message: |
+    Your task is to analyze the provided documents and answer the given question. Please provide a brief explanation of how the content of these documents leads to your answer. 
+    If the provided information is not useful for answering the question, you must explain why the documents are not useful.
+  allow_model_knowledge_fallback: false
+  no_relevant_documents_behavior: "denoising_rationale_with_negative_template"
+  negative_template: "After reviewing the provided documents, I found that none of them contain relevant information to answer the question."
+  require_grounding: true
+  require_contradiction_handling: true
+  require_no_new_answer: true
+
+outputs:
+  save_prompt: true
+  save_documents: true
+  save_jsonl: true
+  save_csv_summary: true

@@ -1,0 +1,9 @@
+contradictions_instructrag_evaluation/.venv
+contradictions_instructrag_rationales/.venv
+contradictions_instructrag_rationales/src/__pycache__
+contradictions_instructrag_evaluation/src/__pycache__
+.agents
+.codex
+historic_data
+contradictions_instructrag_evaluation/outputs/*
+!contradictions_instructrag_evaluation/outputs/.gitkeep

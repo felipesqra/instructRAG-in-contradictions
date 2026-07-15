@@ -1,0 +1,17 @@
+question_index,remedy,provider,model_name,temperature,num_documents_used,status,rationale_type,negative_template_appended,rationale
+0,Betahistine Lupin,huggingface,openai/gpt-oss-20b,0.0,5,success,supporting_documents,False,"After reviewing the provided documents, I found that documents [2, 3, 4, 5, 6] contain relevant information to answer the question. Based on the provided contents, the answer is:  
+
+**Betahistine Lupin contains the active ingredient betahistine dihydrochloride. It is used to treat a disorder of the inner ear, commonly known as Ménière’s syndrome, which may present with tinnitus, hearing loss, vertigo, nausea, vomiting, and headache. The medication works by improving blood flow to the inner ear and normalising nerve responses, thereby alleviating these symptoms.**  
+
+**Denoising reasoning:**  
+- Document 2 discusses the historical adoption of betahistine for Ménière’s disease, indicating its therapeutic role.  
+- Document 3 reviews betahistine’s pharmacology and evidence for treating vestibular disorders, including Ménière’s disease, confirming its clinical use.  
+- Document 4 provides a randomized trial showing betahistine’s effectiveness in reducing residual dizziness after BPPV treatment, supporting its vestibular benefits.  
+- Document 5 is a Cochrane review that includes betahistine among systemic pharmacological interventions for Ménière’s disease, underscoring its relevance despite low‑certainty evidence.  
+- Document 6 is the official product leaflet, which explicitly states the indication, mechanism, and usage of Betahistine Lupin for Ménière’s syndrome."
+1,Betahistine Lupin,huggingface,openai/gpt-oss-20b,0.0,5,success,supporting_documents,False,"After reviewing the provided documents, I found that only document [5] contains relevant information to answer the question.  
+Based on the provided contents, the answer is:  
+
+Betahistine Lupin is a medication used to treat peripheral vertigo, including Ménière’s disease and BPPV. It is generally well tolerated, with a typical dose range of 8–48 mg per day. A common regimen is 48 mg daily for up to 3 months, which has been shown to be effective and safe."
+0,ELOCTATE,huggingface,openai/gpt-oss-20b,0.0,5,success,supporting_documents,False,"None of the provided documents contain relevant information to answer the question. The explanation is: The documents focus on pharmacokinetic comparisons, assay variability, and switching between extended‑half‑life factor VIII products, but none of them describe Eloctate’s active ingredient (efmoroctocog alfa), its indication for haemophilia A, or its therapeutic uses such as controlling and preventing bleeding episodes or use around surgery."
+1,ELOCTATE,huggingface,openai/gpt-oss-20b,0.0,5,success,supporting_documents,False,"None of the provided documents contain relevant information to answer the question. The explanation is: The documents focus on clinical efficacy, safety, and real‑world effectiveness of efmoroctocog alfa (Elocta®) but do not provide prescribing information such as contraindications, ingredient lists, pregnancy or breastfeeding guidance, or specific side‑effect monitoring instructions."

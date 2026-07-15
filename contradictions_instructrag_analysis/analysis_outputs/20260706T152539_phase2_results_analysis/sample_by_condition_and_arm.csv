@@ -1,0 +1,7 @@
+retrieval_condition,model_arm,response_rows,numeric_metric_rows,unique_question_remedy_pairs
+most_similar,baseline_rag,1396,482,1396
+most_similar,instructrag_icl_rag,1396,482,1396
+most_contradictory,baseline_rag,1396,473,1396
+most_contradictory,instructrag_icl_rag,1396,473,1396
+least_contradictory,baseline_rag,1396,494,1396
+least_contradictory,instructrag_icl_rag,1396,494,1396

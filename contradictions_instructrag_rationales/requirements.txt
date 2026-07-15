@@ -1,0 +1,7 @@
+pyyaml
+pandas
+tqdm
+openai
+transformers
+torch
+accelerate

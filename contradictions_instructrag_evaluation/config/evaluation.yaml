@@ -1,0 +1,115 @@
+project:
+  contradictions_repo_path: "../MedicalContradictionDetection-RAG"
+  rationales_dir: "../contradictions_instructrag_rationales/outputs"
+  output_dir: "outputs"
+  run_name: "phase2_rag_comparison"
+
+selection:
+  question_start_index: 2
+  num_questions: 4
+  num_remedies: 350
+  remedy_selection_strategy: "random"  # options: sequential, random
+  random_seed: 75
+
+rationales:
+  rationale_run_dir: null
+  # If null, automatically use the most recent Phase 1 output directory inside rationales_dir.
+  rationale_file: "rationales.jsonl"
+  max_icl_examples: 3
+  icl_selection_strategy: "random"  # options: random, sequential, same_question_first
+  include_negative_rationales_as_icl: true
+  negative_template: "After reviewing the provided documents, I found that none of them contain relevant information to answer the question."
+
+retrieval:
+  use_original_rag_pipeline: true
+  retrieval_conditions:
+    - "most_similar"
+    - "most_contradictory"
+    - "least_contradictory"
+  max_documents_per_query: 10
+  preserve_original_document_order: true
+
+models:
+  baseline:
+    provider: "huggingface"  # options: deepseek, groq, huggingface, huggingface_local, original_rag_pipeline
+    model_name: "openai/gpt-oss-20b"
+    temperature: 0.0
+    max_new_tokens: 256
+    top_p: 1.0
+
+  instructrag_icl:
+    provider: "huggingface"  # options: deepseek, groq, huggingface, huggingface_local, original_rag_pipeline
+    model_name: "openai/gpt-oss-20b"
+    temperature: 0.0
+    max_new_tokens: 256
+    top_p: 1.0
+
+deepseek:
+  api_key_env: "DEEPSEEK_API_KEY"
+  base_url: "https://api.deepseek.com"
+  timeout_seconds: 120
+
+huggingface:
+  api_key_env: "HF_TOKEN"
+  base_url: "https://router.huggingface.co/v1"
+  timeout_seconds: 120
+  # The fields below are used only with provider: "huggingface_local".
+  device: "auto"
+  torch_dtype: "auto"
+  trust_remote_code: false
+  use_auth_token_env: "HF_TOKEN"
+
+groq:
+  api_key_env: "GROQ_API_KEY"
+  base_url: "https://api.groq.com/openai/v1"
+  timeout_seconds: 120
+
+prompt:
+  baseline:
+    use_original_prompt_if_available: true
+    fallback_system_message: |
+      You are a biomedical question-answering assistant. Answer the question using the provided retrieved documents.
+
+  instructrag_icl:
+    system_message: |
+      You are a biomedical question-answering assistant. Answer the question using the provided retrieved documents.
+      Below are some examples of how to answer the question:
+    answer_instruction: |
+      Based on the retrieved documents, answer the question.
+      Do not include the rationale in the final answer.
+      Return only the final answer.
+    include_rationale_examples: true
+    include_example_official_answer: true
+    include_example_documents: true
+
+metrics:
+  use_original_metric_implementation_if_available: true
+  compute_per_example: true
+  compute_macro_average_by_model: true
+  compute_macro_average_by_retrieval_condition: true
+  compute_macro_average_by_negative_filter: true
+  metrics_to_compute:
+    - "rouge1"
+    - "rouge2"
+    - "rougeL"
+    - "semantic_cosine"
+    - "semantic_dot"
+    - "vsim"
+    - "jsd"
+    - "kld"
+  semantic_encoder: "BAAI/bge-small-en-v1.5"
+  use_same_encoder_as_retrieval: true
+
+negative_rows:
+  enabled: true
+  definition: "row_is_negative_if_at_least_one_model_output_contains_negative_template"
+  generate_with_negative_rows_results: true
+  generate_without_negative_rows_results: true
+
+outputs:
+  save_raw_generations: true
+  save_prompts: true
+  save_documents: true
+  save_per_example_metrics: true
+  save_aggregated_metrics: true
+  save_comparison_tables: true

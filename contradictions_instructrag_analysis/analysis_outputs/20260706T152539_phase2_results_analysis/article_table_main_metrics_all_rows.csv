@@ -1,0 +1,7 @@
+Abordagem,Condição,ROUGE-1,ROUGE-2,ROUGE-L,Semantic cosine,VSIM,JSD,KLD
+baseline_rag,most_similar,0.0156,0.0013,0.0135,0.1449,0.4699,0.6696,22.3681
+instructrag_icl_rag,most_similar,0.017,0.0018,0.0144,0.1463,0.4758,0.6675,22.1353
+baseline_rag,most_contradictory,0.0161,0.0016,0.0139,0.1453,0.4671,0.6675,22.2743
+instructrag_icl_rag,most_contradictory,0.0187,0.0029,0.0159,0.1603,0.4803,0.6631,21.9668
+baseline_rag,least_contradictory,0.0146,0.0014,0.0129,0.1402,0.4671,0.6706,22.3869
+instructrag_icl_rag,least_contradictory,0.016,0.0018,0.0138,0.1444,0.4723,0.6667,22.1628
